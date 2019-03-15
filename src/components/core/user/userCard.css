@@ -1,0 +1,16 @@
+.avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.card-title {
+    cursor: pointer;
+}
+
+.card-title:hover {
+    text-decoration: underline;
+}
