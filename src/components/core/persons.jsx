@@ -19,12 +19,26 @@ class Persons extends Component {
           user_id: 8484724,
           api_token: 'b57643096b0f4ed34ac5fd734fc73ea25a8e0043',
           start: 0,
-          limit: 4
+          limit: 40
         }
       }
     );
 
     this.setState({ users: response.data });
+  }
+
+  async delete(user_id) {
+    const { data: response } = await axios.delete(
+      'https://api.pipedrive.com/v1/persons/' + user_id,
+      {
+        params: {
+          api_token: 'b57643096b0f4ed34ac5fd734fc73ea25a8e0043'
+        }
+      }
+    );
+
+    const users = this.state.users.filter(user => user.id !== response.data.id);
+    this.setState({ users });
   }
 
   handleDragStart = (e, index) => {
@@ -59,6 +73,13 @@ class Persons extends Component {
     this.setState({ selectedUser: user, showPopup: !this.state.showPopup });
   };
 
+  handleDeletePerson = () => {
+    const { id: user_id } = this.state.selectedUser;
+
+    this.delete(user_id);
+    this.togglePopup({});
+  };
+
   render() {
     return (
       <div>
@@ -78,6 +99,7 @@ class Persons extends Component {
             <UserDetails
               selectedUser={this.state.selectedUser}
               closePopup={this.togglePopup}
+              deletePerson={this.handleDeletePerson}
             />
           </Modal>
         ) : null}

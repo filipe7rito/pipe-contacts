@@ -16,8 +16,8 @@ const ModalHeader = props => {
 
 const Modal = props => {
   return (
-    <div className="popup">
-      <div className="popup_inner">
+    <div className="modal-outter">
+      <div className="modal_inner">
         <ModalHeader title={props.title} closePopup={props.closePopup} />
         {props.children}
       </div>

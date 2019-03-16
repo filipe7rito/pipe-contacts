@@ -3,7 +3,6 @@ import './userDetails.css';
 import avatar from './../../../assets/avatar_128.jpg';
 
 const UserDetails = props => {
-  console.log(props.selectedUser);
   const {
     name,
     email,
@@ -15,7 +14,6 @@ const UserDetails = props => {
     <div className="card card-details">
       <div className="image-panel">
         <img
-          className="card-img-top"
           className="avatar-details"
           src={picture_id ? picture_id.pictures['128'] : avatar}
           alt="avatar"
@@ -59,6 +57,12 @@ const UserDetails = props => {
         </form>
       </div>
       <div className="footer-details">
+        <button
+          onClick={props.deletePerson}
+          className="btn btn-danger btn-sm  delete-btn"
+        >
+          <i className="fa fa-trash" aria-hidden="true" /> Delete
+        </button>
         <button
           onClick={props.closePopup}
           className="btn btn-secondary btn-sm back-btn"
