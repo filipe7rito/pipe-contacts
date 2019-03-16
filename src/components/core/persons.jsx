@@ -3,10 +3,12 @@ import PersonsTable from './personsTable';
 import axios from 'axios';
 import Modal from '../common//modal/modal';
 import UserDetails from './details/userDetails';
+import Search from '../common/search/search';
 
 class Persons extends Component {
   state = {
     users: [],
+    filteredUsers: [],
     selectedUser: {},
     showPopup: false
   };
@@ -19,12 +21,12 @@ class Persons extends Component {
           user_id: 8484724,
           api_token: 'b57643096b0f4ed34ac5fd734fc73ea25a8e0043',
           start: 0,
-          limit: 40
+          limit: 4
         }
       }
     );
-
-    this.setState({ users: response.data });
+    const responseData = response.data;
+    this.setState({ users: responseData, filteredUsers: responseData });
   }
 
   async delete(user_id) {
@@ -80,14 +82,24 @@ class Persons extends Component {
     this.togglePopup({});
   };
 
+  handleSearch = e => {
+    const query = e.target.value.toLowerCase();
+    let users = [...this.state.users];
+
+    users = users.filter(user => user.name.toLowerCase().includes(query));
+
+    this.setState({ filteredUsers: users });
+  };
+
   render() {
     return (
       <div>
         <h5 className="m-3">People's List</h5>
         <hr />
+        <Search onChange={this.handleSearch} />
         <div className="droppable">
           <PersonsTable
-            users={this.state.users}
+            users={this.state.filteredUsers}
             onDragStart={this.handleDragStart}
             onDragOver={this.handleDragOver}
             onDragEnd={this.handleDragEnd}
