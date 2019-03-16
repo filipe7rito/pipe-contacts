@@ -39,19 +39,21 @@ class Persons extends Component {
       }
     );
 
-    const users = this.state.users.filter(user => user.id !== response.data.id);
-    this.setState({ users });
+    const users = this.state.filteredUsers.filter(
+      user => user.id !== response.data.id
+    );
+    this.setState({ filteredUsers: users, users });
   }
 
   handleDragStart = (e, index) => {
     e.stopPropagation();
-    this.draggedItem = this.state.users[index];
+    this.draggedItem = this.state.filteredUsers[index];
     e.dataTransfer.effectAllowed = 'move';
   };
 
   handleDragOver = (e, index) => {
     e.preventDefault();
-    const draggedOverItem = this.state.users[index];
+    const draggedOverItem = this.state.filteredUsers[index];
 
     // if the item is dragged over itself, ignore
     if (this.draggedItem === draggedOverItem) {
@@ -59,12 +61,14 @@ class Persons extends Component {
     }
 
     // filter out the currently dragged item
-    let users = this.state.users.filter(user => user !== this.draggedItem);
+    let users = this.state.filteredUsers.filter(
+      user => user !== this.draggedItem
+    );
 
     // add the dragged item after the dragged over item
     users.splice(index, 0, this.draggedItem);
 
-    this.setState({ users });
+    this.setState({ filteredUsers: users });
   };
 
   handleDragEnd = () => {
@@ -84,10 +88,14 @@ class Persons extends Component {
 
   handleSearch = e => {
     const query = e.target.value.toLowerCase();
+
+    //clone users list
     let users = [...this.state.users];
 
+    //filter users list
     users = users.filter(user => user.name.toLowerCase().includes(query));
 
+    //update filtered list with the new users list
     this.setState({ filteredUsers: users });
   };
 
