@@ -8,7 +8,7 @@ class Pagination extends Component {
         <ul className="pagination">
           <li className={this.getPreviousClass()}>
             <button
-              className="page-link"
+              className="page-link m-1"
               aria-label="Previous"
               onClick={() => this.props.onClickPrevious()}
             >
@@ -17,7 +17,7 @@ class Pagination extends Component {
           </li>
           <li className={this.getNextClass()}>
             <button
-              className="page-link"
+              className="page-link m-1"
               aria-label="Next"
               onClick={() => this.props.onClickNext()}
             >
