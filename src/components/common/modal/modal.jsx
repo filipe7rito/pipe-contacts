@@ -7,7 +7,7 @@ const ModalHeader = props => {
       <div className="modalTitle">{props.title}</div>
       <i
         className="fa fa-times closeIcon"
-        onClick={props.closePopup}
+        onClick={props.closeModal}
         aria-hidden="true"
       />
     </div>
@@ -18,7 +18,7 @@ const Modal = props => {
   return (
     <div className="modal-outter">
       <div className="modal_inner">
-        <ModalHeader title={props.title} closePopup={props.closePopup} />
+        <ModalHeader title={props.title} closeModal={props.closeModal} />
         {props.children}
       </div>
     </div>

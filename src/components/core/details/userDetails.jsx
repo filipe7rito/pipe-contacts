@@ -64,7 +64,7 @@ const UserDetails = props => {
           <i className="fa fa-trash" aria-hidden="true" /> Delete
         </button>
         <button
-          onClick={props.closePopup}
+          onClick={props.closeModal}
           className="btn btn-secondary btn-sm back-btn"
         >
           Back
