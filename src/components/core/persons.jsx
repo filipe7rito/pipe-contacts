@@ -26,7 +26,7 @@ class Persons extends Component {
         params: {
           user_id: 8484724,
           api_token: 'b57643096b0f4ed34ac5fd734fc73ea25a8e0043',
-          limit: 4,
+          limit: 20,
           start: startNumber > 0 ? startNumber : 0
         }
       }
