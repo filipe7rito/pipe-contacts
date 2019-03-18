@@ -1,5 +1,4 @@
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d123e0ea5164a149d8a00e50316b16e)](https://www.codacy.com/app/filipe7rito/pipe-contacts?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=filipe7rito/pipe-contacts&amp;utm_campaign=Badge_Grade)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -68,3 +67,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d123e0ea5164a149d8a00e50316b16e)](https://www.codacy.com/app/filipe7rito/pipe-contacts?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=filipe7rito/pipe-contacts&amp;utm_campaign=Badge_Grade)
