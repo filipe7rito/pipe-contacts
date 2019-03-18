@@ -12,6 +12,7 @@ class Persons extends Component {
     filteredUsers: [],
     selectedUser: {},
     pagination: {},
+    limit: 4,
     showModal: false
   };
 
@@ -20,13 +21,14 @@ class Persons extends Component {
   }
 
   async getUsers(startNumber) {
+    debugger;
     const { data: response } = await axios.get(
       'https://api.pipedrive.com/v1/persons',
       {
         params: {
           user_id: 8484724,
           api_token: 'b57643096b0f4ed34ac5fd734fc73ea25a8e0043',
-          limit: 20,
+          limit: 4,
           start: startNumber > 0 ? startNumber : 0
         }
       }
@@ -115,19 +117,6 @@ class Persons extends Component {
     this.setState({ filteredUsers: users });
   };
 
-  handlePaginationNext = () => {
-    const { next_start: start } = this.state.pagination;
-
-    this.getUsers(start);
-  };
-
-  handlePaginationPrevious = () => {
-    let { start } = this.state.pagination;
-
-    start -= this.state.pagination.limit;
-    this.getUsers(start);
-  };
-
   render() {
     return (
       <div className="persons-container">
@@ -147,8 +136,8 @@ class Persons extends Component {
         </div>
         <Pagination
           paginationInfo={this.state.pagination}
-          onClickNext={this.handlePaginationNext}
-          onClickPrevious={this.handlePaginationPrevious}
+          onClickNext={start => this.getUsers(start)}
+          onClickPrevious={start => this.getUsers(start)}
         />
         {this.state.showModal ? (
           <Modal title="Person Information" closeModal={this.toggleModal}>
