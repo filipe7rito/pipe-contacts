@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### DEMO
+## DEMO
 
 [https://blooming-waters-26703.herokuapp.com/](https://blooming-waters-26703.herokuapp.com/)
 
@@ -24,7 +24,7 @@ below.
 
 In order to install project dependencies you need to execute the following command:
 
-#`npm run build`
+###`npm install`
 
 ## Available Scripts
 
