@@ -48,3 +48,7 @@
 .table-container {
   flex: 1;
 }
+
+.add-user {
+  float: right;
+}

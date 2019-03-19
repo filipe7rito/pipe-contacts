@@ -34,7 +34,9 @@ const UserDetails = props => {
           </div>
           <div className="row">
             <label className="col-4 label-details">Organization</label>
-            <div className="value-details text-muted">{organization.name}</div>
+            <div className="value-details text-muted">
+              {organization ? organization.name : ''}
+            </div>
           </div>
           <div className="row">
             <label className="col-4 label-details">Assistant</label>

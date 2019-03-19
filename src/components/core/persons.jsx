@@ -5,6 +5,7 @@ import Modal from '../common//modal/modal';
 import UserDetails from './details/userDetails';
 import Search from '../common/search/search';
 import Pagination from '../common/pagination/pagination';
+import NewUser from './create/newUser';
 
 class Persons extends Component {
   state = {
@@ -12,8 +13,9 @@ class Persons extends Component {
     filteredUsers: [],
     selectedUser: {},
     pagination: {},
-    limit: 4,
-    showModal: false
+    limit: 10,
+    showDetails: false,
+    showCreationForm: false
   };
 
   async componentDidMount() {
@@ -21,19 +23,20 @@ class Persons extends Component {
   }
 
   async getUsers(startNumber) {
-    debugger;
     const { data: response } = await axios.get(
       'https://api.pipedrive.com/v1/persons',
       {
         params: {
           user_id: 8484724,
           api_token: 'b57643096b0f4ed34ac5fd734fc73ea25a8e0043',
-          limit: 4,
+          limit: this.state.limit,
           start: startNumber > 0 ? startNumber : 0
         }
       }
     );
+
     const responseData = response.data;
+
     this.setState({
       users: responseData,
       filteredUsers: responseData,
@@ -54,20 +57,93 @@ class Persons extends Component {
     const users = this.state.filteredUsers.filter(
       user => user.id !== response.data.id
     );
+
     this.setState({
       users,
       filteredUsers: users
     });
   }
 
+  async create(user) {
+    const { data: response } = await axios.post(
+      'https://api.pipedrive.com/v1/persons?api_token=b57643096b0f4ed34ac5fd734fc73ea25a8e0043',
+      {
+        ...user
+      }
+    );
+    const responseData = response.data;
+
+    const users = [...this.state.users];
+    users.splice(0, 0, responseData);
+
+    this.setState({
+      users,
+      filteredUsers: users
+    });
+  }
+
+  handleSearch = e => {
+    const query = e.target.value.toLowerCase();
+
+    //clone users list
+    let users = [...this.state.users];
+
+    //filter users list
+    users = users.filter(user => user.name.toLowerCase().includes(query));
+
+    //update filtered list with the new users list
+    this.setState({ filteredUsers: users });
+  };
+
+  handleExitDetails = user => {
+    document.body.style.overflow = 'auto';
+
+    if (!this.state.showDetails) {
+      document.body.style.overflow = 'hidden';
+    }
+    this.setState({ selectedUser: user, showDetails: !this.state.showDetails });
+  };
+
+  handleDeletePerson = () => {
+    const { id: user_id } = this.state.selectedUser;
+
+    this.delete(user_id);
+    this.handleExitDetails({});
+  };
+
+  handleShowCreationForm = () => {
+    if (!this.state.showDetails) {
+      document.body.style.overflow = 'hidden';
+    }
+
+    this.setState({ showCreationForm: !this.state.showCreationForm });
+  };
+
+  handleCreate = user => {
+    document.body.style.overflow = 'auto';
+
+    this.create(user);
+    this.handleExitCreation();
+  };
+
+  handleExitCreation = user => {
+    if (!this.state.showCreationForm) {
+      document.body.style.overflow = 'hidden';
+    }
+
+    this.setState({ showCreationForm: !this.state.showCreationForm });
+  };
+
   handleDragStart = (e, index) => {
     e.stopPropagation();
+
     this.draggedItem = this.state.filteredUsers[index];
     e.dataTransfer.effectAllowed = 'move';
   };
 
   handleDragOver = (e, index) => {
     e.preventDefault();
+
     const draggedOverItem = this.state.filteredUsers[index];
 
     // if the item is dragged over itself, ignore
@@ -90,40 +166,25 @@ class Persons extends Component {
     this.draggedItem = null;
   };
 
-  toggleModal = user => {
-    if (!this.state.showModal) {
-      document.body.style.overflow = 'hidden';
-    }
-    this.setState({ selectedUser: user, showModal: !this.state.showModal });
-  };
-
-  handleDeletePerson = () => {
-    const { id: user_id } = this.state.selectedUser;
-
-    this.delete(user_id);
-    this.toggleModal({});
-  };
-
-  handleSearch = e => {
-    const query = e.target.value.toLowerCase();
-
-    //clone users list
-    let users = [...this.state.users];
-
-    //filter users list
-    users = users.filter(user => user.name.toLowerCase().includes(query));
-
-    //update filtered list with the new users list
-    this.setState({ filteredUsers: users });
-  };
-
   render() {
     return (
       <div className="persons-container">
         <div>
           <h5 className="m-3">People's List</h5>
           <hr />
-          <Search onChange={this.handleSearch} />
+          <div className="row toolbar">
+            <div className="col-10">
+              <Search onChange={this.handleSearch} />
+            </div>
+            <div className="col-2">
+              <button
+                className="btn btn-primary add-user"
+                onClick={this.handleShowCreationForm}
+              >
+                Create user
+              </button>
+            </div>
+          </div>
         </div>
         <div className="table-container">
           <PersonsTable
@@ -131,7 +192,7 @@ class Persons extends Component {
             onDragStart={this.handleDragStart}
             onDragOver={this.handleDragOver}
             onDragEnd={this.handleDragEnd}
-            onClick={this.toggleModal}
+            onClick={this.handleExitDetails}
           />
         </div>
         <Pagination
@@ -139,13 +200,18 @@ class Persons extends Component {
           onClickNext={start => this.getUsers(start)}
           onClickPrevious={start => this.getUsers(start)}
         />
-        {this.state.showModal ? (
-          <Modal title="Person Information" closeModal={this.toggleModal}>
+        {this.state.showDetails ? (
+          <Modal title="Person Information" closeModal={this.handleExitDetails}>
             <UserDetails
               selectedUser={this.state.selectedUser}
-              closeModal={this.toggleModal}
+              closeModal={this.handleExitDetails}
               deletePerson={this.handleDeletePerson}
             />
+          </Modal>
+        ) : null}
+        {this.state.showCreationForm ? (
+          <Modal title="New user" closeModal={this.handleExitCreation}>
+            <NewUser onCreate={this.handleCreate} />
           </Modal>
         ) : null}
       </div>
