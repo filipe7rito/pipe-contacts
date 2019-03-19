@@ -1,5 +1,30 @@
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### DEMO
+
+[https://blooming-waters-26703.herokuapp.com/](https://blooming-waters-26703.herokuapp.com/)
+
+## Requirements
+
+For development, you will only need Node.js installed on your environement.
+
+### Node
+
+[Node](http://nodejs.org/) is really easy to install & now include [NPM](https://npmjs.org/).
+You should be able to run the following command after the installation procedure
+below.
+
+    $ node --version
+    v8.11.3
+
+    $ npm --version
+    5.6.0
+
+## Setup
+
+In order to install project dependencies you need to execute the following command:
+
+#`npm run build`
 
 ## Available Scripts
 
@@ -12,11 +37,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -68,4 +88,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d123e0ea5164a149d8a00e50316b16e)](https://www.codacy.com/app/filipe7rito/pipe-contacts?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=filipe7rito/pipe-contacts&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d123e0ea5164a149d8a00e50316b16e)](https://www.codacy.com/app/filipe7rito/pipe-contacts?utm_source=github.com&utm_medium=referral&utm_content=filipe7rito/pipe-contacts&utm_campaign=Badge_Grade)
