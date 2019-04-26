@@ -24,7 +24,7 @@ below.
 
 In order to install project dependencies you need to execute the following command:
 
-###`npm install`
+### `npm install`
 
 ## Available Scripts
 
