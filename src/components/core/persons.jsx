@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import PersonsTable from './personsTable';
-import axios from 'axios';
 import Modal from '../common//modal/modal';
 import UserDetails from './details/userDetails';
 import Search from '../common/search/search';
 import Pagination from '../common/pagination/pagination';
 import NewUser from './create/newUser';
+import { getUsers } from './../../services/contacts';
+import { createUser } from './../../services/contacts';
+import { deleteUser } from './../../services/contacts';
+import { findUser } from './../../services/contacts';
 
 class Persons extends Component {
   state = {
@@ -23,17 +26,7 @@ class Persons extends Component {
   }
 
   async getUsers(startNumber) {
-    const { data: response } = await axios.get(
-      'https://api.pipedrive.com/v1/persons',
-      {
-        params: {
-          user_id: 8484724,
-          api_token: 'b57643096b0f4ed34ac5fd734fc73ea25a8e0043',
-          limit: this.state.limit,
-          start: startNumber > 0 ? startNumber : 0
-        }
-      }
-    );
+    const { data: response } = await getUsers(startNumber, this.state.limit);
 
     const responseData = response.data;
 
@@ -45,14 +38,7 @@ class Persons extends Component {
   }
 
   async delete(user_id) {
-    const { data: response } = await axios.delete(
-      'https://api.pipedrive.com/v1/persons/' + user_id,
-      {
-        params: {
-          api_token: 'b57643096b0f4ed34ac5fd734fc73ea25a8e0043'
-        }
-      }
-    );
+    const { data: response } = await deleteUser(user_id);
 
     const users = this.state.filteredUsers.filter(
       user => user.id !== response.data.id
@@ -65,12 +51,7 @@ class Persons extends Component {
   }
 
   async create(user) {
-    const { data: response } = await axios.post(
-      'https://api.pipedrive.com/v1/persons?api_token=b57643096b0f4ed34ac5fd734fc73ea25a8e0043',
-      {
-        ...user
-      }
-    );
+    const { data: response } = await createUser(user);
     const responseData = response.data;
 
     const users = [...this.state.users];
@@ -82,20 +63,32 @@ class Persons extends Component {
     });
   }
 
+  async findUser(term) {
+    const { data: response } = await findUser(term);
+    const responseData = response.data ? response.data : [];
+
+    this.setState({
+      users: responseData,
+      filteredUsers: responseData
+    });
+  }
+
   handleSearch = e => {
     const query = e.target.value.toLowerCase();
 
-    //clone users list
+    query.length >= 2 ? this.findUser(query) : this.getUsers();
+
+    /*  //clone users list
     let users = [...this.state.users];
 
     //filter users list
     users = users.filter(user => user.name.toLowerCase().includes(query));
 
     //update filtered list with the new users list
-    this.setState({ filteredUsers: users });
+    this.setState({ filteredUsers: users }); */
   };
 
-  handleExitDetails = user => {
+  handleUserDetails = user => {
     document.body.style.overflow = 'auto';
 
     if (!this.state.showDetails) {
@@ -108,7 +101,7 @@ class Persons extends Component {
     const { id: user_id } = this.state.selectedUser;
 
     this.delete(user_id);
-    this.handleExitDetails({});
+    this.handleUserDetails({});
   };
 
   handleShowCreationForm = () => {
@@ -192,7 +185,7 @@ class Persons extends Component {
             onDragStart={this.handleDragStart}
             onDragOver={this.handleDragOver}
             onDragEnd={this.handleDragEnd}
-            onClick={this.handleExitDetails}
+            onClick={this.handleUserDetails}
           />
         </div>
         <Pagination
@@ -201,10 +194,10 @@ class Persons extends Component {
           onClickPrevious={start => this.getUsers(start)}
         />
         {this.state.showDetails ? (
-          <Modal title="Person Information" closeModal={this.handleExitDetails}>
+          <Modal title="Person Information" closeModal={this.handleUserDetails}>
             <UserDetails
               selectedUser={this.state.selectedUser}
-              closeModal={this.handleExitDetails}
+              closeModal={this.handleUserDetails}
               deletePerson={this.handleDeletePerson}
             />
           </Modal>

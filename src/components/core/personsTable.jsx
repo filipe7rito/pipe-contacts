@@ -2,11 +2,13 @@ import React from 'react';
 import UserCard from '../core/user/userCard';
 
 const PersonTable = props => {
+  const { users } = props;
+  console.log(users);
   return (
     <table className="table table-borderless">
       <thead />
       <tbody>
-        {props.users.map((user, index) => (
+        {users.map((user, index) => (
           <tr
             key={user.id}
             draggable={true}
