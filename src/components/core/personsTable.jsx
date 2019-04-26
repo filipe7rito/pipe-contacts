@@ -3,7 +3,7 @@ import UserCard from '../core/user/userCard';
 
 const PersonTable = props => {
   const { users } = props;
-  console.log(users);
+
   return (
     <table className="table table-borderless">
       <thead />

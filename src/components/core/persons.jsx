@@ -69,7 +69,8 @@ class Persons extends Component {
 
     this.setState({
       users: responseData,
-      filteredUsers: responseData
+      filteredUsers: responseData,
+      pagination: response.additional_data.pagination
     });
   }
 
