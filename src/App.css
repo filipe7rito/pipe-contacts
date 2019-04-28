@@ -15,9 +15,14 @@
 
 .nav {
   flex: 0 0 auto;
-  background-color: #404346;
+  /*background-color: #404346;*/
+  background-color: #F7F7F7;
   color: white;
   font-weight: bold;
+}
+
+.logo {
+  height: 45px;
 }
 
 .content {
