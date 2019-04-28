@@ -114,10 +114,12 @@ class Persons extends Component {
   };
 
   handleCreate = user => {
-    document.body.style.overflow = 'auto';
+    if (user) {
+      document.body.style.overflow = 'auto';
 
-    this.create(user);
-    this.handleExitCreation();
+      this.create(user);
+      this.handleExitCreation();
+    }
   };
 
   handleExitCreation = user => {

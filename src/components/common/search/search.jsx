@@ -11,6 +11,9 @@ const Search = props => {
               className="form-control"
               placeholder="search user"
             />
+            <small className="form-text text-muted m-2">
+              At least 2 characters long
+            </small>
           </div>
         </div>
       </form>
