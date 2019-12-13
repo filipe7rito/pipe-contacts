@@ -1,11 +1,11 @@
 import React from 'react';
-import logoIban from './../../assets/logoIban.png';
+import logoPipe from './../../assets/logoPipe.png';
 
 const NavBar = () => {
   return (
-    <nav className="nav">
-      <span className="navbar-brand">
-        <img className="ml-2 logo" src={logoIban} alt="" />
+    <nav className='nav'>
+      <span className='navbar-brand'>
+        <img className='ml-2 logo' src={logoPipe} alt='' />
       </span>
     </nav>
   );

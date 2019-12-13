@@ -15,9 +15,8 @@
 
 .nav {
   flex: 0 0 auto;
-  /*background-color: #404346;*/
-  background-color: #F7F7F7;
-  color: white;
+  background-color: #404346;
+
   font-weight: bold;
 }
 
@@ -39,10 +38,9 @@
 
 .footer {
   flex-shrink: 0;
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
   height: 50px;
 }
-
 
 .persons-container {
   flex: 1;
