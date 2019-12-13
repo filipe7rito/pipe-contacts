@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
-const apiUrl = 'https://api.pipedrive.com/v1/persons',
-  apiToken = '7a1120bb7e2deb97697d2011b0df8be007b34ca3';
+const apiUrl = "https://api.pipedrive.com/v1/persons",
+  apiToken = "7a1120bb7e2deb97697d2011b0df8be007b34ca3";
 
 export async function getUsers(startNumber, limit) {
   return await axios.get(apiUrl, {
@@ -15,13 +15,13 @@ export async function getUsers(startNumber, limit) {
 }
 
 export async function createUser(user) {
-  return await axios.post(apiUrl + '?api_token=' + apiToken, {
+  return await axios.post(apiUrl + "?api_token=" + apiToken, {
     ...user
   });
 }
 
 export async function deleteUser(user_id) {
-  return await axios.delete(apiUrl + '/' + user_id, {
+  return await axios.delete(apiUrl + "/" + user_id, {
     params: {
       api_token: apiToken
     }
@@ -29,7 +29,7 @@ export async function deleteUser(user_id) {
 }
 
 export async function findUser(query) {
-  return await axios.get(apiUrl + '/find', {
+  return await axios.get(apiUrl + "/find", {
     params: {
       start: 0,
       term: query,

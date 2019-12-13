@@ -1,44 +1,42 @@
 .card-create {
-    width: 400px;
+  width: 400px;
 }
-
 
 .body-create {
-    width: 100%;
-    text-align: center;
-    flex: 1 1 auto;
-    padding: '0 20 20 20';
+  width: 100%;
+  text-align: center;
+  flex: 1 1 auto;
+  padding: "0 20 20 20";
 }
 
-
 .label-create {
-    text-align: right;
-    font-weight: 500;
-    font-size: 12px;
+  text-align: right;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .create-btn {
-    float: right;
-    margin: 10px;
-    width: 75px;
+  float: right;
+  margin: 10px;
+  width: 75px;
 }
 
 .footer-create {
-    height: 50px;
-    background-color: #EBEBEB;
+  height: 50px;
+  background-color: #ebebeb;
 }
 
 .invalid-feedback {
-    text-align: left;
-    margin-left: 25%;
+  text-align: left;
+  margin-left: 25%;
 }
 
 .inputError {
-    border: 1px solid red;
+  border: 1px solid red;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

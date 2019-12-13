@@ -1,41 +1,41 @@
 .modal-outter {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal_inner {
-    margin: auto;
-    max-height: calc(100% - 100px);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
+  margin: auto;
+  max-height: calc(100% - 100px);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
 }
 
 .modalHeader {
-    display: flex;
-    padding: 15px;
-    align-items: center;
-    height: 50px;
-    background-color: #EBEBEB;
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  height: 50px;
+  background-color: #ebebeb;
 }
 
 .closeIcon {
-    float: right;
-    color: #818181;
-    cursor: pointer;
+  float: right;
+  color: #818181;
+  cursor: pointer;
 }
 
 .modalTitle {
-    flex: 1;
-    font-weight: 600;
-    align-items: center;
+  flex: 1;
+  font-weight: 600;
+  align-items: center;
 }

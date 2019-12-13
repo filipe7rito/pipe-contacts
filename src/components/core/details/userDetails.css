@@ -1,65 +1,65 @@
 .card-details {
-    width: 330px;
-    height: 450px;
+  width: 330px;
+  height: 450px;
 }
 
 .image-panel {
-    padding-top: 25px;
-    height: 30%;
-    width: 100%;
-    text-align: center;
+  padding-top: 25px;
+  height: 30%;
+  width: 100%;
+  text-align: center;
 }
 
 .body-details {
-    width: 100%;
-    text-align: center;
-    flex: 1 1 auto;
-    padding: '0 20 20 20';
+  width: 100%;
+  text-align: center;
+  flex: 1 1 auto;
+  padding: "0 20 20 20";
 }
 
 .name-details {
-    padding-top: 10px;
-    font-weight: bold;
+  padding-top: 10px;
+  font-weight: bold;
 }
 
 .contact-details {
-    color: #9ACDA2;
-    font-weight: bold;
+  color: #9acda2;
+  font-weight: bold;
 }
 
 .separator-details {
-    margin: 15px;
+  margin: 15px;
 }
 
 .avatar-details {
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
 }
 
 .label-details {
-    text-align: right;
-    font-weight: 500;
-    font-size: 12px;
+  text-align: right;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .value-details {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .back-btn {
-    float: right;
-    margin: 10px;
-    width: 75px;
+  float: right;
+  margin: 10px;
+  width: 75px;
 }
 
 .delete-btn {
-    float: left;
-    margin: 10px;
-    width: 75px;
+  float: left;
+  margin: 10px;
+  width: 75px;
 }
 
 .footer-details {
-    height: 50px;
-    background-color: #EBEBEB;
+  height: 50px;
+  background-color: #ebebeb;
 }

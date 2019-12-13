@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import './App.css';
-import NavBar from './components/core/navbar';
-import Persons from './components/core/persons';
+import React, { Component } from "react";
+import "./App.css";
+import NavBar from "./components/core/navbar";
+import Persons from "./components/core/persons";
 
 class App extends Component {
   render() {
