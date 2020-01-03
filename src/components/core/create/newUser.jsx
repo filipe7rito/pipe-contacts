@@ -9,10 +9,10 @@ class NewUser extends Component {
       name: '',
       email: '',
       phone: '',
-      org_id: '',
+/*       org_id: '',
       ['409ce12c11577f1a322d2374852d80313a717598']: '',
       adbc2dac9d522f7d460adb3b18a4452b3cad3294: '',
-      dc7ab009470c89c59d733503a72dff9f088712b1: ''
+      dc7ab009470c89c59d733503a72dff9f088712b1: '' */
     },
     errors: {}
   };
@@ -192,7 +192,7 @@ class NewUser extends Component {
                 <option />
               </select>
             </div>
-            <div className="form-group row">
+ {/*            <div className="form-group row">
               <label className="col-3 label-create">Assistant</label>
               <input
                 type="text"
@@ -224,7 +224,7 @@ class NewUser extends Component {
                 className="form-control col-7"
                 placeholder="ex: Location"
               />
-            </div>
+            </div> */}
           </form>
         </div>
         <div className="footer-create">

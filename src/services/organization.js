@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiUrl = "https://api.pipedrive.com/v1/organizations",
-  apiToken = "7a1120bb7e2deb97697d2011b0df8be007b34ca3";
+  apiToken = "9817d493980102e854c91ca8034cf742a26cb898";
 
 export async function getOrganizations() {
   return await axios.get(apiUrl, {
