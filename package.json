@@ -16,7 +16,7 @@
     "format": "prettier --write '**/*.{js,ts,tsx,yml,css,sass,json,md}'",
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --mode development",
-    "start": "./node_modules/webpack/bin/webpack.js -p --progress && node server.js",
+    "start": "webpack -p --progress && node server.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
