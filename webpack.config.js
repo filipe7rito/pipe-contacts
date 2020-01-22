@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 
 module.exports = function(_env, argv) {
   const isProduction = argv.mode === "production";
@@ -15,7 +16,7 @@ module.exports = function(_env, argv) {
     output: {
       path: path.resolve(__dirname, "dist"),
       filename: "assets/js/[name].[contenthash:8].js",
-      publicPath: "/teste"
+      publicPath: "/"
     },
     module: {
       rules: [
@@ -72,7 +73,8 @@ module.exports = function(_env, argv) {
         }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "public/index.html"),
-        inject: true
+        filename: "index.html",
+        inject: "body"
       }),
       new webpack.DefinePlugin({
         "process.env.NODE_ENV": JSON.stringify(

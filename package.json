@@ -3,15 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/jest": "^24.9.0",
     "@types/react": "^16.9.17",
+    "@types/testing-library__react": "^9.1.2",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "script-ext-html-webpack-plugin": "^2.1.4"
   },
   "scripts": {
     "lint": "eslint '**/*.{js,ts,tsx}'",
@@ -46,6 +50,7 @@
     "@babel/runtime": "^7.7.7",
     "@svgr/webpack": "^5.0.1",
     "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "css-loader": "^3.4.1",
@@ -53,6 +58,7 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^6.0.0",
+    "jest-environment-jsdom-fifteen": "^1.0.2",
     "mini-css-extract-plugin": "^0.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "path": "^0.12.7",
