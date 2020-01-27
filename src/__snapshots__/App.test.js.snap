@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Render App as expected 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper"
+  >
+    <nav
+      class="nav"
+    >
+      <span
+        class="navbar-brand"
+      >
+        <img
+          alt=""
+          class="ml-2 logo"
+          src="test-file-stub"
+        />
+      </span>
+    </nav>
+    <div
+      class="content"
+    >
+      <main
+        class="container"
+      >
+        <div
+          class="persons-container"
+        >
+          <div>
+            <h5
+              class="m-3"
+            >
+              People's List
+            </h5>
+            <hr />
+            <div
+              class="row toolbar"
+            >
+              <div
+                class="col-10"
+              >
+                <div>
+                  <form>
+                    <div
+                      class="form-group row"
+                    >
+                      <div
+                        class="col-sm-5"
+                      >
+                        <input
+                          class="form-control"
+                          placeholder="search user"
+                        />
+                        <small
+                          class="form-text text-muted m-2"
+                        >
+                          At least 2 characters long
+                        </small>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div
+                class="col-2"
+              >
+                <button
+                  class="btn btn-primary add-user"
+                >
+                  Create user
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="table-container"
+          >
+            <table
+              class="table table-borderless"
+            >
+              <thead />
+              <tbody />
+            </table>
+          </div>
+          <nav
+            aria-label="Page navigation example"
+          >
+            <ul
+              class="pagination"
+            >
+              <li
+                class="page-item disabled"
+              >
+                <button
+                  aria-label="Previous"
+                  class="page-link m-1"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    Previous
+                  </span>
+                </button>
+              </li>
+              <li
+                class="page-item disabled"
+              >
+                <button
+                  aria-label="Next"
+                  class="page-link m-1"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    Next
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </main>
+    </div>
+    <footer
+      class="footer"
+    />
+  </div>
+</DocumentFragment>
+`;
