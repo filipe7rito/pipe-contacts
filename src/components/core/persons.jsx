@@ -27,7 +27,6 @@ class Persons extends Component {
 
   async getUsers(startNumber) {
     const { data: response } = await getUsers(startNumber, this.state.limit);
-
     const responseData = response.data;
 
     this.setState({
@@ -164,17 +163,17 @@ class Persons extends Component {
 
   render() {
     return (
-      <div className="persons-container">
+      <div className='persons-container'>
         <div>
-          <h5 className="m-3">People's List</h5>
+          <h5 className='m-3'>People's List</h5>
           <hr />
-          <div className="row toolbar">
-            <div className="col-10">
+          <div className='row toolbar'>
+            <div className='col-10'>
               <Search onChange={this.handleSearch} />
             </div>
-            <div className="col-2">
+            <div className='col-2'>
               <button
-                className="btn btn-primary add-user"
+                className='btn btn-primary add-user'
                 onClick={this.handleShowCreationForm}
               >
                 Create user
@@ -182,7 +181,7 @@ class Persons extends Component {
             </div>
           </div>
         </div>
-        <div className="table-container">
+        <div className='table-container'>
           <PersonsTable
             users={this.state.filteredUsers}
             onDragStart={this.handleDragStart}
@@ -197,7 +196,7 @@ class Persons extends Component {
           onClickPrevious={start => this.getUsers(start)}
         />
         {this.state.showDetails ? (
-          <Modal title="Person Information" closeModal={this.handleUserDetails}>
+          <Modal title='Person Information' closeModal={this.handleUserDetails}>
             <UserDetails
               selectedUser={this.state.selectedUser}
               closeModal={this.handleUserDetails}
@@ -206,7 +205,7 @@ class Persons extends Component {
           </Modal>
         ) : null}
         {this.state.showCreationForm ? (
-          <Modal title="New user" closeModal={this.handleExitCreation}>
+          <Modal title='New user' closeModal={this.handleExitCreation}>
             <NewUser onCreate={this.handleCreate} />
           </Modal>
         ) : null}

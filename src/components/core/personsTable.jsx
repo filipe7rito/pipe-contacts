@@ -5,7 +5,7 @@ const PersonTable = props => {
   const { users } = props;
 
   return (
-    <table className="table table-borderless">
+    <table className='table table-borderless'>
       <thead />
       <tbody>
         {users.map((user, index) => (
